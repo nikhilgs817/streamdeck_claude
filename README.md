@@ -1,0 +1,38 @@
+# Claude Controls
+
+Unofficial Windows companion for Elgato Stream Deck. Version 1.0.0.0.
+
+Includes app navigation, new chat, search, editing, settings and zoom controls. Defaults match documented desktop shortcuts or the installed Windows app menu; custom app bindings can be entered on each key.
+
+![Animated keys](docs/images/deck.gif)
+
+## Setup
+
+Requires Windows 10+, Stream Deck 7.1+ and Windows Daily Toolkit 2.6+ for coordinated automatic profile switching. Install the plugin package, accept its editable **Claude** profile, and launch Claude from Toolkit's Open App action. The deck follows the foreground app; Back returns to your main keys. Multiple companions switch through the main profile instead of nesting profiles. Keys also work in a manually selected profile without the Toolkit coordinator.
+
+## Appearance and controls
+
+Every key has animated Colourful, Vivid and Pro looks, 29 themes, custom labels, glyphs and pictures. Gentle loop uses a six-second loop at 12 fps and stops for hidden keys. Select any key to set its optional shortcut override. The Back key has a Follow focus switch. App controls verify the executable identity and foreground window before sending input.
+
+## Build
+
+```sh
+npm ci
+npm run build
+npx tsc --noEmit
+npm test
+npm run test:ui
+npm run validate
+npm run pack
+```
+
+Open `dist/com.dailyops.claude.v1.streamDeckPlugin` to install. Build artifacts and personal settings are Git-ignored. Source code and dependencies are self-contained in this repository.
+
+![Key settings](docs/images/settings.png)
+
+## References
+
+- [App documentation](https://academy.claude.com/tutorials/navigating-the-claude-desktop-app)
+- [Windows Daily Toolkit](https://github.com/nikhilgs817/windows_daily_toolkit)
+
+Not affiliated with or endorsed by the app publisher. App names belong to their respective owners. MIT license.

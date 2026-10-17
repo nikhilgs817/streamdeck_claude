@@ -1,0 +1,156 @@
+{
+  "id": "claude",
+  "folder": "CLAUDE",
+  "repo": "streamdeck_claude",
+  "app": "Claude",
+  "glyph": "star",
+  "theme": "coral",
+  "reference": "https://academy.claude.com/tutorials/navigating-the-claude-desktop-app",
+  "commands": [
+    {
+      "id": "back",
+      "name": "Back",
+      "glyph": "back",
+      "theme": "gold",
+      "description": "Return to the main Stream Deck keys.",
+      "operation": "back"
+    },
+    {
+      "id": "newchat",
+      "name": "New chat",
+      "glyph": "sparkchat",
+      "theme": "coral",
+      "shortcut": "Ctrl+N",
+      "description": "New chat in the app. An optional custom shortcut can replace the default."
+    },
+    {
+      "id": "search",
+      "name": "Search chats",
+      "glyph": "search",
+      "theme": "sunset",
+      "shortcut": "Ctrl+K",
+      "description": "Search chats in the app. An optional custom shortcut can replace the default."
+    },
+    {
+      "id": "find",
+      "name": "Find",
+      "glyph": "target",
+      "theme": "ocean",
+      "shortcut": "Ctrl+F",
+      "description": "Find in the app. An optional custom shortcut can replace the default."
+    },
+    {
+      "id": "sidebar",
+      "name": "Sidebar",
+      "glyph": "sidebar",
+      "theme": "peach",
+      "shortcut": "Ctrl+B",
+      "description": "Sidebar in the app. An optional custom shortcut can replace the default."
+    },
+    {
+      "id": "settings",
+      "name": "Settings",
+      "glyph": "gear",
+      "theme": "candy",
+      "shortcut": "Ctrl+,",
+      "description": "Settings in the app. An optional custom shortcut can replace the default."
+    },
+    {
+      "id": "shortcuts",
+      "name": "Shortcuts",
+      "glyph": "keyboard",
+      "theme": "cyan",
+      "shortcut": "Ctrl+/",
+      "description": "Shortcuts in the app. An optional custom shortcut can replace the default."
+    },
+    {
+      "id": "zoomin",
+      "name": "Zoom in",
+      "glyph": "search",
+      "theme": "tropical",
+      "shortcut": "Ctrl+Plus",
+      "description": "Zoom in in the app. An optional custom shortcut can replace the default."
+    },
+    {
+      "id": "zoomout",
+      "name": "Zoom out",
+      "glyph": "search",
+      "theme": "sky",
+      "shortcut": "Ctrl+-",
+      "description": "Zoom out in the app. An optional custom shortcut can replace the default."
+    },
+    {
+      "id": "resetzoom",
+      "name": "Reset zoom",
+      "glyph": "target",
+      "theme": "lemonade",
+      "shortcut": "Ctrl+0",
+      "description": "Reset zoom in the app. An optional custom shortcut can replace the default."
+    },
+    {
+      "id": "copy",
+      "name": "Copy",
+      "glyph": "copy",
+      "theme": "violet",
+      "shortcut": "Ctrl+C",
+      "description": "Copy in the app. An optional custom shortcut can replace the default."
+    },
+    {
+      "id": "paste",
+      "name": "Paste",
+      "glyph": "paste",
+      "theme": "crimson",
+      "shortcut": "Ctrl+V",
+      "description": "Paste in the app. An optional custom shortcut can replace the default."
+    },
+    {
+      "id": "undo",
+      "name": "Undo",
+      "glyph": "back",
+      "theme": "iris",
+      "shortcut": "Ctrl+Z",
+      "description": "Undo in the app. An optional custom shortcut can replace the default."
+    },
+    {
+      "id": "redo",
+      "name": "Redo",
+      "glyph": "push",
+      "theme": "azure",
+      "shortcut": "Ctrl+Y",
+      "description": "Redo in the app. An optional custom shortcut can replace the default."
+    },
+    {
+      "id": "focus",
+      "name": "Focus app",
+      "glyph": "target",
+      "theme": "ocean",
+      "description": "Bring the verified app window to the front.",
+      "operation": "focus"
+    },
+    {
+      "id": "fullscreen",
+      "name": "Full screen",
+      "glyph": "monitorOn",
+      "theme": "violet",
+      "shortcut": "F11",
+      "description": "Full screen in the app. An optional custom shortcut can replace the default."
+    },
+    {
+      "id": "shortcut",
+      "name": "Custom shortcut",
+      "glyph": "keyboard",
+      "theme": "electric",
+      "description": "Set your own app shortcut, for example Ctrl+Shift+N."
+    }
+  ],
+  "uuid": "com.dailyops.claude.v1",
+  "name": "Claude Controls",
+  "version": "1.0.0.0",
+  "profile": "profiles/Claude",
+  "selector": {
+    "names": [
+      "Claude"
+    ],
+    "path": "(?:[\\\\/]Claude(?:_[^\\\\/]+)?[\\\\/]|[\\\\/]Anthropic[\\\\/])"
+  }
+}
