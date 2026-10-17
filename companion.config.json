@@ -24,6 +24,15 @@
       "description": "New chat in the app. An optional custom shortcut can replace the default."
     },
     {
+      "id": "usage",
+      "name": "Usage",
+      "glyph": "tradeorders",
+      "theme": "emerald",
+      "operation": "url",
+      "url": "https://claude.ai/settings/usage",
+      "description": "Open the official account usage page in your default browser. Sign in there if needed."
+    },
+    {
       "id": "search",
       "name": "Search chats",
       "glyph": "search",
@@ -145,12 +154,39 @@
   ],
   "uuid": "com.dailyops.claude.v1",
   "name": "Claude Controls",
-  "version": "1.0.0.0",
+  "version": "1.1.0.0",
   "profile": "profiles/Claude",
   "selector": {
     "names": [
       "Claude"
     ],
     "path": "(?:[\\\\/]Claude(?:_[^\\\\/]+)?[\\\\/]|[\\\\/]Anthropic[\\\\/])"
+  },
+  "design": {
+    "id": "claude",
+    "name": "Claude",
+    "background": "#e9e5db",
+    "surface": "#f5f2e9",
+    "ink": "#423e38",
+    "accent": "#bd6749",
+    "border": "#d4cec0",
+    "radius": 14
+  },
+  "layout": {
+    "0,0": "back",
+    "1,0": "newchat",
+    "2,0": "usage",
+    "3,0": "search",
+    "4,0": "find",
+    "0,1": "sidebar",
+    "1,1": "settings",
+    "2,1": "shortcuts",
+    "3,1": "zoomin",
+    "4,1": "zoomout",
+    "0,2": "resetzoom",
+    "1,2": "copy",
+    "2,2": "paste",
+    "3,2": "undo",
+    "4,2": "redo"
   }
 }
