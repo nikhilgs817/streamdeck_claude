@@ -31,7 +31,7 @@
       "theme": "clay",
       "description": "Start an incognito chat in the Claude desktop app. Incognito chats are not saved to your history.",
       "operation": "applink",
-      "link": "claude://claude.ai/new?incognito=true"
+      "link": "claude://claude.ai/new?incognito"
     },
     {
       "id": "search",
@@ -91,7 +91,7 @@
       "name": "Artifacts",
       "glyph": "artifacts",
       "theme": "clay",
-      "description": "Open your Artifacts in the Claude desktop app.",
+      "description": "Open your Artifacts in the Claude desktop app. Some Claude app versions do not open this page from a link.",
       "operation": "applink",
       "link": "claude://claude.ai/artifacts"
     },
@@ -124,8 +124,18 @@
       "name": "Sidebar",
       "glyph": "sidebar",
       "theme": "clay",
-      "description": "Show or hide the chat sidebar (Ctrl+Shift+S). Brings Claude to the front first; nothing is sent if another window is active. You can change the shortcut in the key settings.",
-      "shortcut": "Ctrl+Shift+S"
+      "description": "Show or hide the chat sidebar by pressing Claude's own sidebar button. If your Claude version has a sidebar shortcut, you can enter it in the key settings instead.",
+      "menu": [
+        [
+          "Toggle sidebar",
+          "Open sidebar",
+          "Close sidebar",
+          "Collapse sidebar",
+          "Expand sidebar",
+          "Show sidebar",
+          "Hide sidebar"
+        ]
+      ]
     },
     {
       "id": "more",
@@ -286,7 +296,7 @@
   ],
   "uuid": "com.dailyops.claude.v1",
   "name": "Claude Controls",
-  "version": "1.2.0.0",
+  "version": "1.2.2.0",
   "profile": "profiles/Claude",
   "selector": {
     "names": [
@@ -320,7 +330,7 @@
         "1,1": "recents",
         "2,1": "code",
         "3,1": "cowork",
-        "4,1": "artifacts",
+        "4,1": "settings",
         "0,2": "stop",
         "1,2": "copyresponse",
         "2,2": "dictate",
@@ -332,8 +342,8 @@
       "name": "More",
       "layout": {
         "0,0": "main",
-        "1,0": "settings",
-        "2,0": "connectors",
+        "1,0": "connectors",
+        "2,0": "newwindow",
         "3,0": "shortcuts",
         "4,0": "find",
         "0,1": "editlast",

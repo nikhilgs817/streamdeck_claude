@@ -1,6 +1,6 @@
 # Claude Controls
 
-Unofficial Elgato Stream Deck plugin for the **Claude desktop app on Windows**. Version 1.2.0.0.
+Unofficial Elgato Stream Deck plugin for the **Claude desktop app on Windows**. Version 1.2.2.0.
 
 Keys open Claude pages **inside the desktop app** (not the browser), start chats, Claude Code sessions and Cowork tasks, and send the app's own keyboard shortcuts. Every icon is animated.
 
@@ -8,7 +8,7 @@ Keys open Claude pages **inside the desktop app** (not the browser), start chats
 
 ## Install in three steps
 
-1. Download **ClaudeControls-Installer-1.2.0.0.zip** from [Releases](https://github.com/nikhilgs817/streamdeck_claude/releases/latest).
+1. Download **ClaudeControls-Installer-1.2.2.0.zip** from [Releases](https://github.com/nikhilgs817/streamdeck_claude/releases/latest).
 2. Right-click the ZIP, choose **Extract All**, and open the extracted folder.
 3. Double-click **Install-ClaudeControls.cmd**. Wait for the success message; Stream Deck restarts automatically.
 
@@ -49,7 +49,7 @@ Open or focus Claude to show these keys automatically (needs Windows Daily Toolk
 
 | Style | Look |
 |---|---|
-| **Claude Dark** (default) | Warm charcoal keys, ivory line icons, clay-orange accents, serif labels |
+| **Claude Dark** (default) | Warm charcoal keys, ivory line icons, clay-orange accents, bold Segoe UI labels |
 | **Claude Light** | Cream paper keys with the same icons |
 | **Colourful** | Coloured icons on dark glass |
 | **Vivid** | White icons on a bright gradient |

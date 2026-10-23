@@ -10,6 +10,9 @@ export const CLAUDE_TOKENS = {
 	serif: "Georgia, 'Times New Roman', 'DejaVu Serif', serif",
 };
 
+// Key labels: Segoe UI Bold, the same family as Windows Daily Toolkit (title case on Claude Dark/Light).
+export const LABEL_FONT = "'Segoe UI', 'DejaVu Sans', Arial, sans-serif";
+
 // Mutable palette used while one key renders (renders are synchronous, so this is safe).
 const T = { ...CLAUDE_TOKENS };
 const TAU = Math.PI * 2;
@@ -254,7 +257,7 @@ export function claudeKeySvg({ glyph, label = "", phase = 0, setup = false, anim
 	const serif = pal.font === "serif";
 	const raw = String(label).slice(0, 14);
 	const text = esc(serif ? raw : raw.toUpperCase());
-	const fs = serif ? (text.length > 11 ? 13 : text.length > 8 ? 15 : 17) : Math.min(15, Math.floor(118 / Math.max(1, raw.length * 0.66)));
+	const fs = serif ? (raw.length > 11 ? 15.5 : raw.length > 8 ? 17.5 : 20) : Math.min(18, Math.floor(130 / Math.max(1, raw.length * 0.64)));
 	const glowOp = (style === "vivid" ? 0.16 : style === "neon" ? 0.22 : 0.10) + 0.06 * wave(p);
 	let body = `<defs><linearGradient id="${u}b" x1="0" y1="0" x2="${style === "vivid" ? 1 : 0}" y2="1"><stop offset="0" stop-color="${pal.bgTop}"/><stop offset="1" stop-color="${pal.bgBottom}"/></linearGradient>` +
 		`<radialGradient id="${u}g" cx=".5" cy=".38" r=".55"><stop offset="0" stop-color="${pal.glow}" stop-opacity="${f(glowOp)}"/><stop offset="1" stop-color="${pal.glow}" stop-opacity="0"/></radialGradient>` +
@@ -267,10 +270,10 @@ export function claudeKeySvg({ glyph, label = "", phase = 0, setup = false, anim
 	if (animate && (style === "neon" || style === "vivid" || style === "pro")) body += `<rect x="2.5" y="2.5" width="139" height="139" rx="13" fill="none" stroke="#fff" stroke-width="1.6" stroke-opacity=".28" stroke-dasharray="30 526" stroke-dashoffset="${f(-p * 556)}"/>`;
 	body += `<g data-claude-glyph="${esc(glyph)}">${draw(p)}</g>`;
 	if (setup) body += `<rect x="46" y="92" width="52" height="15" rx="7.5" fill="${pal.clay}"/><text x="72" y="103" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9.5" font-weight="700" letter-spacing="1" fill="${pal.cut}">SETUP</text>`;
-	if (text) body += (serif ? `<path d="M58 111h28" stroke="${pal.clay}" stroke-width="2" stroke-linecap="round" opacity=".75"/>` +
-		`<text x="72" y="131" text-anchor="middle" font-family="${CLAUDE_TOKENS.serif}" font-size="${fs}" fill="${pal.ink}">${text}</text>` :
-		`<text x="72" y="132.5" text-anchor="middle" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="${fs}" font-weight="700" letter-spacing="${raw.length > 9 ? 0.4 : 1.2}" fill="#000" opacity=".35">${text}</text>` +
-		`<text x="72" y="131" text-anchor="middle" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="${fs}" font-weight="700" letter-spacing="${raw.length > 9 ? 0.4 : 1.2}" fill="${style === "neon" ? "#ffffff" : pal.ink}">${text}</text>`);
+	if (text) body += (serif ? `<path d="M60 110h24" stroke="${pal.clay}" stroke-width="2" stroke-linecap="round" opacity=".75"/>` +
+		`<text x="72" y="132" text-anchor="middle" font-family="${LABEL_FONT}" font-size="${fs}" font-weight="700" fill="${pal.ink}">${text}</text>` :
+		`<text x="72" y="132.5" text-anchor="middle" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="${fs}" font-weight="800" letter-spacing="${raw.length > 9 ? 0.3 : 1}" fill="#000" opacity=".35">${text}</text>` +
+		`<text x="72" y="131" text-anchor="middle" font-family="Segoe UI, Arial, Helvetica, sans-serif" font-size="${fs}" font-weight="800" letter-spacing="${raw.length > 9 ? 0.3 : 1}" fill="${style === "neon" ? "#ffffff" : pal.ink}">${text}</text>`);
 	Object.assign(T, CLAUDE_TOKENS);
 	return `<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144"><g data-app-design="claude" data-style="${style}">${body}</g></svg>`;
 }

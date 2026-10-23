@@ -758,7 +758,8 @@ while ($true) {
 				if ($a[0] -and -not [DailyOpsWin]::Activate($a[0])) { $status = 'miss'; $msg = 'not running: ' + $a[0]; break }
 				$sh = Shell
 				$first = $true
-				foreach ($st in @(ConvertFrom-Json $a[1])) {
+				$steps = ConvertFrom-Json $a[1]
+				foreach ($st in @($steps)) {
 					if ($first -and $a[0]) { Start-Sleep -Milliseconds 90 }
 					$first = $false
 					if ($st.w) { Start-Sleep -Milliseconds ([int]$st.w) }
@@ -778,7 +779,9 @@ while ($true) {
 				$target = [DailyOpsWin]::ForegroundPid()
 				if (-not (& $isApp $target)) { $status = 'miss'; $msg = 'The app did not come to the front. Nothing was sent.'; break }
 				$sh = Shell
-				foreach ($st in @(ConvertFrom-Json $a[2])) {
+				# Windows PowerShell 5.1 returns a JSON array as one object from a pipeline; assign first so it enumerates.
+				$steps = ConvertFrom-Json $a[2]
+				foreach ($st in @($steps)) {
 					if ([DailyOpsWin]::ForegroundPid() -ne $target) { $status = 'miss'; $msg = 'The app lost focus. Nothing more was sent.'; break }
 					if ($st.w) { Start-Sleep -Milliseconds ([Math]::Min(2000, [int]$st.w)) }
 					if ($st.k) { $sh.SendKeys([string]$st.k) }
