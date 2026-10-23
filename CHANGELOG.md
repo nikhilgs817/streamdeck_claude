@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.3
+
+- Incognito, Stop and Copy reply now press Claude's own on-screen buttons (Incognito opens a new chat first; Copy reply uses the Copy button under the latest reply). Claude's desktop app has no keyboard shortcuts for these.
+- Page 2: Focus app replaces Shortcuts (Shortcuts stays in the action list).
+
 ## 1.2.2
 
 - Bigger, bold key labels in Segoe UI (the same font family as Windows Daily Toolkit).

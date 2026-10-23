@@ -8,7 +8,7 @@ import { shortcutToSendKeys } from "./shortcuts.js";
 import type { AppSelector } from "./companion-specs.js";
 import { TradingInput } from "./trading-input.js";
 import { ps } from "./ps.js";
-export type CompanionCommand = { id: string; name: string; glyph: string; theme: string; description: string; shortcut?: string; menu?: string[][]; choices?: { names: string[]; options: string[] }[]; operation?: "back" | "focus" | "url" | "page" | "applink"; url?: string; link?: string; page?: number; trading?: "submit" | "bracket" | "panel"; setup?: string; executionNote?: string; hidden?: boolean; holdMs?: number; requiresBinding?: boolean };
+export type CompanionCommand = { id: string; name: string; glyph: string; theme: string; description: string; shortcut?: string; menu?: string[][]; choices?: { names: string[]; options: string[] }[]; operation?: "back" | "focus" | "url" | "page" | "applink"; url?: string; link?: string; page?: number; trading?: "submit" | "bracket" | "panel"; setup?: string; executionNote?: string; hidden?: boolean; holdMs?: number; requiresBinding?: boolean; last?: boolean; waitMs?: number };
 export type CompanionConfig = { uuid: string; name: string; profile: string; selector: AppSelector; commands: CompanionCommand[]; design?: Record<string, unknown>; linkScheme?: string };
 
 /** Turns "Ctrl+Shift+O" / "Ctrl+Shift+; Up" / "Win+H" into verified host steps. */
@@ -58,7 +58,11 @@ export async function bootCompanion(config: CompanionConfig): Promise<void> {
 						// Fixed in-app links from the plugin's own config (never from key settings), e.g. claude://claude.ai/new
 						const link = definition.link || "";
 						if (!config.linkScheme || !link.startsWith(config.linkScheme)) { await this.feedback(ev.action, { status: "miss", message: "This app link is not available" }); return; }
-						await this.feedback(ev.action, await ps.run("url", [link]), false); return;
+						const opened = await ps.run("url", [link]);
+						if (opened.status !== "ok" || !definition.menu) { await this.feedback(ev.action, opened, false); return; }
+						// Then press an on-screen button the app exposes (for example the incognito toggle on a new chat).
+						await new Promise((r) => setTimeout(r, definition.waitMs || 1500));
+						await this.feedback(ev.action, await controlApp({ selector: config.selector, menu: definition.menu, last: definition.last }), false); return;
 					}
 					if (definition.operation === "url") {
 						const url = ev.payload.settings.destination?.trim() || definition.url;
@@ -98,7 +102,7 @@ export async function bootCompanion(config: CompanionConfig): Promise<void> {
 					const keys = shortcut ? shortcutToSendKeys(shortcut) : undefined;
 					if (shortcut && !keys) { await this.feedback(ev.action, { status: "miss", message: "Use a shortcut such as Ctrl+Shift+N" }); return; }
 					if (!keys && !definition.menu && definition.operation !== "focus") { await this.feedback(ev.action, { status: "miss", message: "Set this key's shortcut in settings" }); return; }
-					const result = await controlApp({ selector: config.selector, ...(keys ? { keys, chords: shortcut!.split(/\s+/).map((chord) => shortcutToSendKeys(chord)!) } : definition.menu ? { menu: definition.menu, choices: definition.choices } : {}) });
+					const result = await controlApp({ selector: config.selector, ...(keys ? { keys, chords: shortcut!.split(/\s+/).map((chord) => shortcutToSendKeys(chord)!) } : definition.menu ? { menu: definition.menu, choices: definition.choices, last: definition.last } : {}) });
 					await this.feedback(ev.action, result, false);
 				} catch { await this.feedback(ev.action, { status: "err", message: "App controls are unavailable" }); }
 			}

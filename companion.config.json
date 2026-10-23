@@ -29,9 +29,18 @@
       "name": "Incognito",
       "glyph": "incognito",
       "theme": "clay",
-      "description": "Start an incognito chat in the Claude desktop app. Incognito chats are not saved to your history.",
+      "description": "Open a new chat in the Claude desktop app and switch on incognito with Claude's own incognito button. Incognito chats are not saved to your history.",
       "operation": "applink",
-      "link": "claude://claude.ai/new?incognito"
+      "link": "claude://claude.ai/new",
+      "menu": [
+        [
+          "Incognito chat",
+          "Use incognito",
+          "Turn on incognito",
+          "Start incognito chat",
+          "Incognito"
+        ]
+      ]
     },
     {
       "id": "search",
@@ -100,16 +109,29 @@
       "name": "Stop",
       "glyph": "stop",
       "theme": "clay",
-      "description": "Stop a reply that is still being written (Esc). Brings Claude to the front first; nothing is sent if another window is active. You can change the shortcut in the key settings.",
-      "shortcut": "Esc"
+      "description": "Stop a reply that is still being written by pressing Claude's own Stop button.",
+      "menu": [
+        [
+          "Stop response",
+          "Stop generating",
+          "Stop"
+        ]
+      ]
     },
     {
       "id": "copyresponse",
       "name": "Copy reply",
       "glyph": "copyresponse",
       "theme": "clay",
-      "description": "Copy Claude's last reply to the clipboard (Ctrl+Shift+C). Brings Claude to the front first; nothing is sent if another window is active. You can change the shortcut in the key settings.",
-      "shortcut": "Ctrl+Shift+C"
+      "description": "Copy Claude's latest reply by pressing the Copy button under it.",
+      "menu": [
+        [
+          "Copy",
+          "Copy response",
+          "Copy message"
+        ]
+      ],
+      "last": true
     },
     {
       "id": "dictate",
@@ -178,7 +200,7 @@
       "name": "Shortcuts",
       "glyph": "shortcuts",
       "theme": "clay",
-      "description": "Show Claude's keyboard shortcut list (Ctrl+/). Brings Claude to the front first; nothing is sent if another window is active. You can change the shortcut in the key settings.",
+      "description": "Send Claude's keyboard-shortcut list key (Ctrl+/). Some Claude app versions have no shortcut list; enter another shortcut in the key settings if needed.",
       "shortcut": "Ctrl+/"
     },
     {
@@ -296,7 +318,7 @@
   ],
   "uuid": "com.dailyops.claude.v1",
   "name": "Claude Controls",
-  "version": "1.2.2.0",
+  "version": "1.2.3.0",
   "profile": "profiles/Claude",
   "selector": {
     "names": [
@@ -344,7 +366,7 @@
         "0,0": "main",
         "1,0": "connectors",
         "2,0": "newwindow",
-        "3,0": "shortcuts",
+        "3,0": "focus",
         "4,0": "find",
         "0,1": "editlast",
         "1,1": "focusinput",
