@@ -754,19 +754,26 @@ while ($true) {
 			}
 			'sendto' {
 				# a[0] = process names ("Code|Code - Insiders"), a[1] = JSON steps [{k:"^+p"},{w:200},{t:"Git: Push"}]
+				# Fails closed: nothing is typed unless the named app is really in front, and it stops if focus moves away.
 				Ensure-Native
-				if ($a[0] -and -not [DailyOpsWin]::Activate($a[0])) { $status = 'miss'; $msg = 'not running: ' + $a[0]; break }
+				$target = 0
+				if ($a[0]) {
+					if (-not [DailyOpsWin]::Activate($a[0])) { $status = 'miss'; $msg = 'Open VS Code first.'; break }
+					Start-Sleep -Milliseconds 90
+					$target = [DailyOpsWin]::ForegroundPid()
+					$fgName = ''; try { $fgName = (Get-Process -Id $target -ErrorAction Stop).ProcessName } catch { }
+					if (@($a[0].Split('|')) -notcontains $fgName) { $status = 'miss'; $msg = 'VS Code did not come to the front. Nothing was sent.'; break }
+				}
 				$sh = Shell
-				$first = $true
+				# Windows PowerShell 5.1 returns a JSON array as one object from a pipeline; assign first so it enumerates.
 				$steps = ConvertFrom-Json $a[1]
 				foreach ($st in @($steps)) {
-					if ($first -and $a[0]) { Start-Sleep -Milliseconds 90 }
-					$first = $false
-					if ($st.w) { Start-Sleep -Milliseconds ([int]$st.w) }
+					if ($target -and [DailyOpsWin]::ForegroundPid() -ne $target) { $status = 'miss'; $msg = 'VS Code lost focus. Nothing more was sent.'; break }
+					if ($st.w) { Start-Sleep -Milliseconds ([Math]::Min(2000, [int]$st.w)) }
 					if ($st.k) { $sh.SendKeys([string]$st.k) }
 					if ($st.t) { $sh.SendKeys((SK-Escape ([string]$st.t))) }
 				}
-				$msg = 'sent'
+				if ($status -eq 'ok') { $msg = 'sent' }
 			}
 			'appkeys' {
 				# a[0] = process names ("Claude"), a[1] = executable path pattern, a[2] = JSON steps [{k:"^+o"},{w:120},{win:72}]

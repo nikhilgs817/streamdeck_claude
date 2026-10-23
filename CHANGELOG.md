@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.2.4
+
+- Bigger, bolder key labels (+1 pt, extra-bold Segoe UI).
+- New **Send** key: presses the app's own Send button (animated arrow icon). It is on page 1.
+- Livelier animation: icon details run two loops per cycle, the icon gently rises and settles, the glow breathes and an accent light travels round each key.
+- Background helper: VS Code-style fail-closed focus checks are now shared by every command.
+
 ## 1.2.3
 
 - Incognito, Stop and Copy reply now press Claude's own on-screen buttons (Incognito opens a new chat first; Copy reply uses the Copy button under the latest reply). Claude's desktop app has no keyboard shortcuts for these.

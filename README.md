@@ -1,6 +1,6 @@
 # Claude Controls
 
-Unofficial Elgato Stream Deck plugin for the **Claude desktop app on Windows**. Version 1.2.3.0.
+Unofficial Elgato Stream Deck plugin for the **Claude desktop app on Windows**. Version 1.2.4.0.
 
 Keys open Claude pages **inside the desktop app** (not the browser), start chats, Claude Code sessions and Cowork tasks, and send the app's own keyboard shortcuts. Every icon is animated.
 
@@ -8,7 +8,7 @@ Keys open Claude pages **inside the desktop app** (not the browser), start chats
 
 ## Install in three steps
 
-1. Download **ClaudeControls-Installer-1.2.3.0.zip** from [Releases](https://github.com/nikhilgs817/streamdeck_claude/releases/latest).
+1. Download **ClaudeControls-Installer-1.2.4.0.zip** from [Releases](https://github.com/nikhilgs817/streamdeck_claude/releases/latest).
 2. Right-click the ZIP, choose **Extract All**, and open the extracted folder.
 3. Double-click **Install-ClaudeControls.cmd**. Wait for the success message; Stream Deck restarts automatically.
 
@@ -16,11 +16,11 @@ No Git, Node.js or build commands are needed. Windows Daily Toolkit is included 
 
 ## The keys
 
-**Page 1 (Claude):** Back · New chat · Incognito · Search chats · Usage / Projects · Recents · Claude Code · Cowork · Settings / Stop · Copy reply · Dictate · Sidebar · More
+**Page 1 (Claude):** Back · New chat · Incognito · Search chats · Usage / Projects · Recents · Claude Code · Cowork · Settings / Stop · Dictate · Send · Copy reply · More
 
-**Page 2 (More):** Main · Connectors · New window · Focus app · Find / Edit last · Message box · Copy · Paste · Undo / Redo · Zoom in · Zoom out · Reset zoom · Full screen
+**Page 2 (More):** Main · Connectors · New window · Sidebar · Find / Edit last · Message box · Copy · Paste · Undo / Redo · Zoom in · Zoom out · Reset zoom · Full screen
 
-Also in the action list: Artifacts, Shortcuts and Custom key.
+Also in the action list: Artifacts, Shortcuts, Focus app and Custom key.
 
 | Key | What it does | How |
 |---|---|---|
@@ -30,6 +30,7 @@ Also in the action list: Artifacts, Shortcuts and Custom key.
 | Projects, Recents, Artifacts | Open that page inside the app | `claude://claude.ai/...` |
 | Claude Code, Cowork | Start a new session / task | `claude://code/new`, `claude://cowork/new` |
 | Search chats | Search past chats and projects | Ctrl+K |
+| Send | Send what you typed | Claude's Send button |
 | Stop | Stop a reply that is still being written | Claude's Stop button |
 | Copy reply | Copy Claude's latest reply | Copy button under the reply |
 | Dictate | Windows voice typing into the message box | Win+H |
