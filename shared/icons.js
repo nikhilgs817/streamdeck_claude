@@ -2,8 +2,14 @@
 // inspector (icon picker) and the build script (static manifest images).
 // All artwork is original, generic glyphs (no brand logos).
 
-import { APP_DESIGN, setAppDesign, appKeySvg } from './app-design.js';
-export { setAppDesign };
+import { APP_DESIGN, setAppDesign as setDesign, appKeySvg } from './app-design.js';
+import { claudeKeySvg, claudeMonoSvg, hasClaudeArt, CLAUDE_ART } from './brands/claude.js';
+/** Selects the companion's native design. Claude also gets its own animated icon set in the picker. */
+export function setAppDesign(design) {
+	setDesign(design);
+	if (design?.id === 'claude') for (const g of Object.keys(CLAUDE_ART).reverse()) if (!PICKABLE.includes(g)) PICKABLE.unshift(g);
+}
+const CLAUDE_STYLES = ['app', 'light', 'neon', 'vivid', 'pro'];
 const W = "#fff";
 
 /** Colour themes: [gradient start, gradient end, ink (cut-out colour)] */
@@ -39,6 +45,8 @@ export const THEMES = {
 	cosmic: ["#713CFF", "#F02CBA", "#42126B"],
 	peach: ["#FF9270", "#FF497C", "#8C2545"],
 	lemonade: ["#D5E900", "#36B65E", "#3C5A05"],
+	// Claude clay (default colour for the Claude keys in Colourful, Vivid and Pro).
+	clay: ["#F0A07C", "#C8582F", "#5C2414"],
 };
 
 /** Brighter glyph colours for themes that are too dark to read on the dark "neon" tile. */
@@ -360,12 +368,17 @@ function movingGlyph(glyph, art, ink, phase, breathe) {
 
 /**
  * Builds a 144×144 key image. No SVG filters are used, so it renders the same in Stream Deck's SVG engine.
- * @param {{glyph: string, theme: string, label?: string, style?: "neon"|"vivid"|"real"|"pro"|"app", image?: string, motion?: {kind: string, phase: number}}} spec
+ * @param {{glyph: string, theme: string, label?: string, style?: "neon"|"vivid"|"real"|"pro"|"app"|"light", image?: string, motion?: {kind: string, phase: number}}} spec
  *   style "vivid": white glyph on a colour gradient · "neon": colour-gradient glyph on dark glass ·
  *   "real": the app's/site's own icon (data URI in `image`) on dark glass.
  * @returns {string} SVG markup
  */
 export function keySvg({ glyph, theme, label = "", style = "neon", image, motion }) {
+	if (APP_DESIGN?.id === 'claude' && hasClaudeArt(glyph) && CLAUDE_STYLES.includes(style)) {
+		const text = String(label || '');
+		return claudeKeySvg({ glyph, label: text.replace(' · SETUP', ''), setup: text.includes(' · SETUP'), phase: motion ? motion.phase : 0, animate: !!motion, style, colours: THEMES[theme] || THEMES.clay });
+	}
+	if(style === 'light') style = 'app';
 	if(style === 'app') return appKeySvg({glyph,theme,label,motion},GLYPHS[glyph]||GLYPHS.rocket);
 	let [c1, c2, ink] = THEMES[theme] ?? THEMES.violet;
 	if (style !== "vivid" && NEON_OVERRIDE[theme]) [c1, c2] = NEON_OVERRIDE[theme];
@@ -502,6 +515,7 @@ export function monitorKeySvg({ n, state, caption, motion }) {
  * @param {number} size output px
  */
 export function monoSvg(glyph, size) {
+	if (APP_DESIGN?.id === 'claude' && hasClaudeArt(glyph)) return claudeMonoSvg(glyph, size);
 	const draw = GLYPHS[glyph] ?? GLYPHS.rocket;
 	return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="14 8 116 108">${draw("#2D2D2D").replace(/#A8F4FF|#FFE07A|#3DDC84|#FF5470/g, "#fff")}</svg>`;
 }

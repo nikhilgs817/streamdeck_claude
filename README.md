@@ -1,26 +1,63 @@
 # Claude Controls
 
-Unofficial Windows companion for Elgato Stream Deck. Version 1.1.1.0.
+Unofficial Elgato Stream Deck plugin for the **Claude desktop app on Windows**. Version 1.2.0.0.
 
-App navigation, new chat, search, settings, editing and zoom controls. **Usage** opens the [official account usage page](https://claude.ai/settings/usage) in your default browser. Sign in there if needed; the plugin does not read or store usage credentials.
+Keys open Claude pages **inside the desktop app** (not the browser), start chats, Claude Code sessions and Cowork tasks, and send the app's own keyboard shortcuts. Every icon is animated.
 
 ![Animated keys](docs/images/deck.gif)
 
 ## Install in three steps
 
-1. Download **ClaudeControls-Installer-1.1.1.0.zip** from [Releases](https://github.com/nikhilgs817/streamdeck_claude/releases/latest).
+1. Download **ClaudeControls-Installer-1.2.0.0.zip** from [Releases](https://github.com/nikhilgs817/streamdeck_claude/releases/latest).
 2. Right-click the ZIP, choose **Extract All**, and open the extracted folder.
-3. Double-click **Install-ClaudeControls.cmd**. Wait for the installation success message; Stream Deck restarts automatically.
+3. Double-click **Install-ClaudeControls.cmd**. Wait for the success message; Stream Deck restarts automatically.
 
-No Git, Node.js or build commands are required. Windows Daily Toolkit is included for automatic app switching. The installer verifies files, backs up your setup, preserves existing layouts/settings and rolls back failed updates. [Full installation, update and recovery guide](docs/INSTALL.md).
+No Git, Node.js or build commands are needed. Windows Daily Toolkit is included for automatic app switching. The installer verifies files, backs up your setup, keeps your layouts and settings, and rolls back a failed update. [Full installation, update and recovery guide](docs/INSTALL.md).
 
-## Use
+## The keys
 
-Requires Windows 10/11 64-bit and Stream Deck 7.1+. Open or focus Claude to show its keys automatically; **Back** returns to the main keys. Profiles also work when selected manually. Configure shortcuts and appearance by selecting a key in Stream Deck. Existing action IDs remain compatible.
+**Page 1 (Claude):** Back · New chat · Incognito · Search chats · Usage / Projects · Recents · Claude Code · Cowork · Artifacts / Stop · Copy reply · Dictate · Sidebar · More
+
+**Page 2 (More):** Main · Settings · Connectors · Shortcuts · Find / Edit last · Message box · Copy · Paste · Undo / Redo · Zoom in · Zoom out · Reset zoom · Full screen
+
+Also in the action list: Focus app, New window and Custom key.
+
+| Key | What it does | How |
+|---|---|---|
+| New chat, Incognito | Start a chat (incognito chats are not saved) | `claude://claude.ai/new` app link |
+| Usage, Settings, Connectors | Open that Settings page inside the app | `claude://claude.ai/settings/...` |
+| Projects, Recents, Artifacts | Open that page inside the app | `claude://claude.ai/...` |
+| Claude Code, Cowork | Start a new session / task | `claude://code/new`, `claude://cowork/new` |
+| Search chats | Search past chats and projects | Ctrl+K |
+| Stop | Stop a reply that is still being written | Esc |
+| Copy reply | Copy Claude's last reply | Ctrl+Shift+C |
+| Dictate | Windows voice typing into the message box | Win+H |
+| Sidebar | Show or hide the chat list | Ctrl+Shift+S |
+| Edit last / Message box | Edit your last message / put the cursor in the message box | Ctrl+Shift+; (then Up) |
+| Shortcuts, Find | Claude's shortcut list / find in chat | Ctrl+/, Ctrl+F |
+| Copy, Paste, Undo, Redo | Editing | Ctrl+C, Ctrl+V, Ctrl+Z, Ctrl+Shift+Z |
+| Zoom in/out, Reset zoom, Full screen | Text size and window | Ctrl+=, Ctrl+-, Ctrl+0, F11 |
+| Custom key | Any shortcut you type, e.g. `Ctrl+Shift+O` or `Win+H` | |
+
+App links start Claude if it is closed. Shortcut keys first bring Claude to the front and **send nothing if another window stays in front**. You can change any shortcut in the key's settings. The app can change its shortcuts between versions; if a key stops working, enter the current shortcut in that key's settings. The plugin never reads or stores your account data.
+
+Open or focus Claude to show these keys automatically (needs Windows Daily Toolkit); **Back** returns to your main keys. **More** and **Main** switch between the two pages.
 
 ## Appearance
 
-App theme is the default: app-specific surfaces, type, corners and motion. Labels stay still while icon details animate in a six-second loop at 12 fps. Hidden keys stop animating. Colourful, Vivid and Pro remain available with 29 colours, custom labels, glyphs and pictures. App theme uses its own palette; choose another style for custom colours. Buy and Sell retain their semantic colours in App theme.
+![Styles](docs/images/styles.png)
+
+| Style | Look |
+|---|---|
+| **Claude Dark** (default) | Warm charcoal keys, ivory line icons, clay-orange accents, serif labels |
+| **Claude Light** | Cream paper keys with the same icons |
+| **Colourful** | Coloured icons on dark glass |
+| **Vivid** | White icons on a bright gradient |
+| **Pro** | Restrained slate keys with a thin accent strip |
+
+Colourful, Vivid and Pro use the new **Clay** colour by default and accept any of the 30 colours. Every icon has its own animation in a six-second loop at 12 fps (the gear turns, the usage needle sweeps, the sidebar slides, the code cursor blinks…). Labels stay still. Turn **Gentle loop** off for a still key. You can also pick another icon, change the label or use your own picture.
+
+![Settings](docs/images/settings.png)
 
 ## Build and verify
 
@@ -28,23 +65,25 @@ App theme is the default: app-specific surfaces, type, corners and motion. Label
 npm ci
 npm run build
 npx tsc --noEmit
-npm test
-npm run test:ui
+npm test            # SDK workflow + animation checks
+npm run test:ui     # inspector (set CHROMIUM_PATH off Windows)
 npm run validate
 npm run pack
 npm run build:installer
-npm run test:installer
+npm run test:installer   # Windows only
 ```
 
-Installer: `dist/com.dailyops.claude.v1.streamDeckPlugin`. Sources and dependencies are self-contained. Personal profiles, credentials, account data and build output are excluded from Git.
+The installer ZIP is `dist/ClaudeControls-Installer-<version>.zip`; the plugin package is `dist/com.dailyops.claude.v1.streamDeckPlugin`. Personal profiles, credentials, account data and build output are excluded from Git. The build uses the official Rollup WASM package so it works on Windows PCs that block native parsers.
 
-![Settings](docs/images/settings.png)
+## Known limits
+
+- Keyboard shortcuts depend on the Claude app version. App links are Claude's documented `claude://` format.
+- Managed PCs that run PowerShell in Constrained Language Mode or block hidden PowerShell can stop the shortcut keys; app-link keys still need Windows to open `claude://` links.
 
 ## References
 
-- [Official app documentation 1](https://academy.claude.com/tutorials/navigating-the-claude-desktop-app)
+- [Open Claude Desktop with a link](https://support.claude.com/en/articles/14729294-open-claude-desktop-with-a-link)
+- [Navigating the Claude desktop app](https://academy.claude.com/tutorials/navigating-the-claude-desktop-app)
 - [Windows Daily Toolkit](https://github.com/nikhilgs817/windows_daily_toolkit)
 
-Not affiliated with or endorsed by the app publisher. App names belong to their respective owners. MIT license.
-
-The build uses the official Rollup WASM package to avoid native parser dependencies on restricted Windows PCs.
+Not affiliated with or endorsed by Anthropic. Claude is a trademark of Anthropic, PBC. The icons are original artwork. MIT license.

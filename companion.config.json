@@ -3,158 +3,290 @@
   "folder": "CLAUDE",
   "repo": "streamdeck_claude",
   "app": "Claude",
-  "glyph": "star",
-  "theme": "coral",
+  "glyph": "newchat",
+  "theme": "clay",
   "reference": "https://academy.claude.com/tutorials/navigating-the-claude-desktop-app",
   "commands": [
     {
       "id": "back",
       "name": "Back",
       "glyph": "back",
-      "theme": "gold",
-      "description": "Return to the main Stream Deck keys.",
+      "theme": "clay",
+      "description": "Return to your main Stream Deck keys.",
       "operation": "back"
     },
     {
       "id": "newchat",
       "name": "New chat",
-      "glyph": "sparkchat",
-      "theme": "coral",
-      "shortcut": "Ctrl+N",
-      "description": "New chat in the app. An optional custom shortcut can replace the default."
+      "glyph": "newchat",
+      "theme": "clay",
+      "description": "Start a new chat in the Claude desktop app (opens Claude if it is closed).",
+      "operation": "applink",
+      "link": "claude://claude.ai/new"
     },
     {
-      "id": "usage",
-      "name": "Usage",
-      "glyph": "tradeorders",
-      "theme": "emerald",
-      "operation": "url",
-      "url": "https://claude.ai/settings/usage",
-      "description": "Open the official account usage page in your default browser. Sign in there if needed."
+      "id": "incognito",
+      "name": "Incognito",
+      "glyph": "incognito",
+      "theme": "clay",
+      "description": "Start an incognito chat in the Claude desktop app. Incognito chats are not saved to your history.",
+      "operation": "applink",
+      "link": "claude://claude.ai/new?incognito=true"
     },
     {
       "id": "search",
       "name": "Search chats",
       "glyph": "search",
-      "theme": "sunset",
-      "shortcut": "Ctrl+K",
-      "description": "Search chats in the app. An optional custom shortcut can replace the default."
+      "theme": "clay",
+      "description": "Open Claude's search to find past chats and projects (Ctrl+K). Brings Claude to the front first; nothing is sent if another window is active. You can change the shortcut in the key settings.",
+      "shortcut": "Ctrl+K"
     },
     {
-      "id": "find",
-      "name": "Find",
-      "glyph": "target",
-      "theme": "ocean",
-      "shortcut": "Ctrl+F",
-      "description": "Find in the app. An optional custom shortcut can replace the default."
+      "id": "usage",
+      "name": "Usage",
+      "glyph": "usage",
+      "theme": "clay",
+      "description": "Open Settings › Usage inside the Claude desktop app to see your plan limits. The plugin never reads your account data.",
+      "operation": "applink",
+      "link": "claude://claude.ai/settings/usage"
+    },
+    {
+      "id": "projects",
+      "name": "Projects",
+      "glyph": "projects",
+      "theme": "clay",
+      "description": "Open your Projects in the Claude desktop app.",
+      "operation": "applink",
+      "link": "claude://claude.ai/projects"
+    },
+    {
+      "id": "recents",
+      "name": "Recents",
+      "glyph": "recents",
+      "theme": "clay",
+      "description": "Open your recent chats in the Claude desktop app.",
+      "operation": "applink",
+      "link": "claude://claude.ai/recents"
+    },
+    {
+      "id": "code",
+      "name": "Claude Code",
+      "glyph": "code",
+      "theme": "clay",
+      "description": "Start a new Claude Code session in the desktop app.",
+      "operation": "applink",
+      "link": "claude://code/new"
+    },
+    {
+      "id": "cowork",
+      "name": "Cowork",
+      "glyph": "cowork",
+      "theme": "clay",
+      "description": "Start a new Cowork task in the desktop app.",
+      "operation": "applink",
+      "link": "claude://cowork/new"
+    },
+    {
+      "id": "artifacts",
+      "name": "Artifacts",
+      "glyph": "artifacts",
+      "theme": "clay",
+      "description": "Open your Artifacts in the Claude desktop app.",
+      "operation": "applink",
+      "link": "claude://claude.ai/artifacts"
+    },
+    {
+      "id": "stop",
+      "name": "Stop",
+      "glyph": "stop",
+      "theme": "clay",
+      "description": "Stop a reply that is still being written (Esc). Brings Claude to the front first; nothing is sent if another window is active. You can change the shortcut in the key settings.",
+      "shortcut": "Esc"
+    },
+    {
+      "id": "copyresponse",
+      "name": "Copy reply",
+      "glyph": "copyresponse",
+      "theme": "clay",
+      "description": "Copy Claude's last reply to the clipboard (Ctrl+Shift+C). Brings Claude to the front first; nothing is sent if another window is active. You can change the shortcut in the key settings.",
+      "shortcut": "Ctrl+Shift+C"
+    },
+    {
+      "id": "dictate",
+      "name": "Dictate",
+      "glyph": "dictate",
+      "theme": "clay",
+      "description": "Bring Claude to the front and start Windows voice typing (Win+H) in the message box.",
+      "shortcut": "Win+H"
     },
     {
       "id": "sidebar",
       "name": "Sidebar",
       "glyph": "sidebar",
-      "theme": "peach",
-      "shortcut": "Ctrl+B",
-      "description": "Sidebar in the app. An optional custom shortcut can replace the default."
+      "theme": "clay",
+      "description": "Show or hide the chat sidebar (Ctrl+Shift+S). Brings Claude to the front first; nothing is sent if another window is active. You can change the shortcut in the key settings.",
+      "shortcut": "Ctrl+Shift+S"
+    },
+    {
+      "id": "more",
+      "name": "More",
+      "glyph": "more",
+      "theme": "clay",
+      "description": "Show the second page of Claude keys.",
+      "operation": "page",
+      "page": 1
+    },
+    {
+      "id": "main",
+      "name": "Main",
+      "glyph": "main",
+      "theme": "clay",
+      "description": "Back to the first page of Claude keys.",
+      "operation": "page",
+      "page": 0
     },
     {
       "id": "settings",
       "name": "Settings",
-      "glyph": "gear",
-      "theme": "candy",
-      "shortcut": "Ctrl+,",
-      "description": "Settings in the app. An optional custom shortcut can replace the default."
+      "glyph": "settings",
+      "theme": "clay",
+      "description": "Open Settings inside the Claude desktop app.",
+      "operation": "applink",
+      "link": "claude://claude.ai/settings"
+    },
+    {
+      "id": "connectors",
+      "name": "Connectors",
+      "glyph": "connectors",
+      "theme": "clay",
+      "description": "Open Settings › Connectors inside the Claude desktop app.",
+      "operation": "applink",
+      "link": "claude://claude.ai/settings/connectors"
     },
     {
       "id": "shortcuts",
       "name": "Shortcuts",
-      "glyph": "keyboard",
-      "theme": "cyan",
-      "shortcut": "Ctrl+/",
-      "description": "Shortcuts in the app. An optional custom shortcut can replace the default."
+      "glyph": "shortcuts",
+      "theme": "clay",
+      "description": "Show Claude's keyboard shortcut list (Ctrl+/). Brings Claude to the front first; nothing is sent if another window is active. You can change the shortcut in the key settings.",
+      "shortcut": "Ctrl+/"
     },
     {
-      "id": "zoomin",
-      "name": "Zoom in",
-      "glyph": "search",
-      "theme": "tropical",
-      "shortcut": "Ctrl+Plus",
-      "description": "Zoom in in the app. An optional custom shortcut can replace the default."
+      "id": "find",
+      "name": "Find",
+      "glyph": "find",
+      "theme": "clay",
+      "description": "Find text in the current chat (Ctrl+F). Brings Claude to the front first; nothing is sent if another window is active. You can change the shortcut in the key settings.",
+      "shortcut": "Ctrl+F"
     },
     {
-      "id": "zoomout",
-      "name": "Zoom out",
-      "glyph": "search",
-      "theme": "sky",
-      "shortcut": "Ctrl+-",
-      "description": "Zoom out in the app. An optional custom shortcut can replace the default."
+      "id": "editlast",
+      "name": "Edit last",
+      "glyph": "editlast",
+      "theme": "clay",
+      "description": "Edit your last message: focuses the message box, then presses Up (Ctrl+Shift+; then Up). Brings Claude to the front first; nothing is sent if another window is active. You can change the shortcut in the key settings.",
+      "shortcut": "Ctrl+Shift+; Up"
     },
     {
-      "id": "resetzoom",
-      "name": "Reset zoom",
-      "glyph": "target",
-      "theme": "lemonade",
-      "shortcut": "Ctrl+0",
-      "description": "Reset zoom in the app. An optional custom shortcut can replace the default."
+      "id": "focusinput",
+      "name": "Message box",
+      "glyph": "focusinput",
+      "theme": "clay",
+      "description": "Put the cursor in the message box (Ctrl+Shift+;). Brings Claude to the front first; nothing is sent if another window is active. You can change the shortcut in the key settings.",
+      "shortcut": "Ctrl+Shift+;"
     },
     {
       "id": "copy",
       "name": "Copy",
       "glyph": "copy",
-      "theme": "violet",
-      "shortcut": "Ctrl+C",
-      "description": "Copy in the app. An optional custom shortcut can replace the default."
+      "theme": "clay",
+      "description": "Copy (Ctrl+C). Brings Claude to the front first; nothing is sent if another window is active. You can change the shortcut in the key settings.",
+      "shortcut": "Ctrl+C"
     },
     {
       "id": "paste",
       "name": "Paste",
       "glyph": "paste",
-      "theme": "crimson",
-      "shortcut": "Ctrl+V",
-      "description": "Paste in the app. An optional custom shortcut can replace the default."
+      "theme": "clay",
+      "description": "Paste (Ctrl+V). Brings Claude to the front first; nothing is sent if another window is active. You can change the shortcut in the key settings.",
+      "shortcut": "Ctrl+V"
     },
     {
       "id": "undo",
       "name": "Undo",
-      "glyph": "back",
-      "theme": "iris",
-      "shortcut": "Ctrl+Z",
-      "description": "Undo in the app. An optional custom shortcut can replace the default."
+      "glyph": "undo",
+      "theme": "clay",
+      "description": "Undo typing (Ctrl+Z). Brings Claude to the front first; nothing is sent if another window is active. You can change the shortcut in the key settings.",
+      "shortcut": "Ctrl+Z"
     },
     {
       "id": "redo",
       "name": "Redo",
-      "glyph": "push",
-      "theme": "azure",
-      "shortcut": "Ctrl+Y",
-      "description": "Redo in the app. An optional custom shortcut can replace the default."
+      "glyph": "redo",
+      "theme": "clay",
+      "description": "Redo typing (Ctrl+Shift+Z). Brings Claude to the front first; nothing is sent if another window is active. You can change the shortcut in the key settings.",
+      "shortcut": "Ctrl+Shift+Z"
     },
     {
-      "id": "focus",
-      "name": "Focus app",
-      "glyph": "target",
-      "theme": "ocean",
-      "description": "Bring the verified app window to the front.",
-      "operation": "focus"
+      "id": "zoomin",
+      "name": "Zoom in",
+      "glyph": "zoomin",
+      "theme": "clay",
+      "description": "Make Claude's text larger (Ctrl+=). Brings Claude to the front first; nothing is sent if another window is active. You can change the shortcut in the key settings.",
+      "shortcut": "Ctrl+="
+    },
+    {
+      "id": "zoomout",
+      "name": "Zoom out",
+      "glyph": "zoomout",
+      "theme": "clay",
+      "description": "Make Claude's text smaller (Ctrl+-). Brings Claude to the front first; nothing is sent if another window is active. You can change the shortcut in the key settings.",
+      "shortcut": "Ctrl+-"
+    },
+    {
+      "id": "resetzoom",
+      "name": "Reset zoom",
+      "glyph": "resetzoom",
+      "theme": "clay",
+      "description": "Reset Claude's text size (Ctrl+0). Brings Claude to the front first; nothing is sent if another window is active. You can change the shortcut in the key settings.",
+      "shortcut": "Ctrl+0"
     },
     {
       "id": "fullscreen",
       "name": "Full screen",
-      "glyph": "monitorOn",
-      "theme": "violet",
-      "shortcut": "F11",
-      "description": "Full screen in the app. An optional custom shortcut can replace the default."
+      "glyph": "fullscreen",
+      "theme": "clay",
+      "description": "Toggle full screen (F11). Brings Claude to the front first; nothing is sent if another window is active. You can change the shortcut in the key settings.",
+      "shortcut": "F11"
+    },
+    {
+      "id": "focus",
+      "name": "Focus app",
+      "glyph": "focus",
+      "theme": "clay",
+      "description": "Bring the Claude window to the front.",
+      "operation": "focus"
+    },
+    {
+      "id": "newwindow",
+      "name": "New window",
+      "glyph": "newwindow",
+      "theme": "clay",
+      "description": "Open another Claude window (Ctrl+N). Brings Claude to the front first; nothing is sent if another window is active. You can change the shortcut in the key settings.",
+      "shortcut": "Ctrl+N"
     },
     {
       "id": "shortcut",
-      "name": "Custom shortcut",
-      "glyph": "keyboard",
-      "theme": "electric",
-      "description": "Set your own app shortcut, for example Ctrl+Shift+N."
+      "name": "Custom key",
+      "glyph": "shortcut",
+      "theme": "clay",
+      "description": "Send any shortcut you type in the key settings, for example Ctrl+Shift+O. Win+<key> works too.",
+      "requiresBinding": true
     }
   ],
   "uuid": "com.dailyops.claude.v1",
   "name": "Claude Controls",
-  "version": "1.1.1.0",
+  "version": "1.2.0.0",
   "profile": "profiles/Claude",
   "selector": {
     "names": [
@@ -165,28 +297,56 @@
   "design": {
     "id": "claude",
     "name": "Claude",
-    "background": "#e9e5db",
-    "surface": "#f5f2e9",
-    "ink": "#423e38",
-    "accent": "#bd6749",
-    "border": "#d4cec0",
+    "styleName": "Claude Dark",
+    "light": true,
+    "background": "#1A1917",
+    "surface": "#2A2926",
+    "ink": "#F3EFE6",
+    "accent": "#D97757",
+    "border": "#3D3B36",
     "radius": 14
   },
-  "layout": {
-    "0,0": "back",
-    "1,0": "newchat",
-    "2,0": "usage",
-    "3,0": "search",
-    "4,0": "find",
-    "0,1": "sidebar",
-    "1,1": "settings",
-    "2,1": "shortcuts",
-    "3,1": "zoomin",
-    "4,1": "zoomout",
-    "0,2": "resetzoom",
-    "1,2": "copy",
-    "2,2": "paste",
-    "3,2": "undo",
-    "4,2": "redo"
-  }
+  "linkScheme": "claude://",
+  "pages": [
+    {
+      "name": "Claude",
+      "layout": {
+        "0,0": "back",
+        "1,0": "newchat",
+        "2,0": "incognito",
+        "3,0": "search",
+        "4,0": "usage",
+        "0,1": "projects",
+        "1,1": "recents",
+        "2,1": "code",
+        "3,1": "cowork",
+        "4,1": "artifacts",
+        "0,2": "stop",
+        "1,2": "copyresponse",
+        "2,2": "dictate",
+        "3,2": "sidebar",
+        "4,2": "more"
+      }
+    },
+    {
+      "name": "More",
+      "layout": {
+        "0,0": "main",
+        "1,0": "settings",
+        "2,0": "connectors",
+        "3,0": "shortcuts",
+        "4,0": "find",
+        "0,1": "editlast",
+        "1,1": "focusinput",
+        "2,1": "copy",
+        "3,1": "paste",
+        "4,1": "undo",
+        "0,2": "redo",
+        "1,2": "zoomin",
+        "2,2": "zoomout",
+        "3,2": "resetzoom",
+        "4,2": "fullscreen"
+      }
+    }
+  ]
 }
