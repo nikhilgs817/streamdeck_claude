@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.5
+
+- New **5h session** and **Weekly** keys: show how much of your Claude usage limits is used (big %, ring, time to reset). Paste your claude.ai session key once in the key settings; it is encrypted for your Windows account and only sent to claude.ai. Updates every minute; press to refresh.
+- **Back** now returns to your previous profile even when the Claude keys were opened directly in Stream Deck (not through Windows Daily Toolkit).
+
 ## 1.2.4
 
 - Bigger, bolder key labels (+1 pt, extra-bold Segoe UI).

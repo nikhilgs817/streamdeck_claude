@@ -39,6 +39,28 @@
       ]
     },
     {
+      "id": "usage5h",
+      "name": "5h session",
+      "glyph": "meter",
+      "theme": "clay",
+      "description": "Shows how much of your Claude 5-hour usage window is used, as a percentage, with the time until it resets. Press to refresh now. Needs your claude.ai session key (saved encrypted) in the key settings.",
+      "meter": {
+        "source": "claude",
+        "window": "5h"
+      }
+    },
+    {
+      "id": "usageweek",
+      "name": "Weekly",
+      "glyph": "meter",
+      "theme": "clay",
+      "description": "Shows how much of your Claude weekly usage limit is used, as a percentage, with the time until it resets. Press to refresh now. Uses the same saved session key as the 5h key.",
+      "meter": {
+        "source": "claude",
+        "window": "7d"
+      }
+    },
+    {
       "id": "incognito",
       "name": "Incognito",
       "glyph": "incognito",
@@ -332,7 +354,7 @@
   ],
   "uuid": "com.dailyops.claude.v1",
   "name": "Claude Controls",
-  "version": "1.2.4.0",
+  "version": "1.2.5.0",
   "profile": "profiles/Claude",
   "selector": {
     "names": [
@@ -361,12 +383,12 @@
         "1,0": "newchat",
         "2,0": "incognito",
         "3,0": "search",
-        "4,0": "usage",
+        "4,0": "usage5h",
         "0,1": "projects",
         "1,1": "recents",
         "2,1": "code",
         "3,1": "cowork",
-        "4,1": "settings",
+        "4,1": "usageweek",
         "0,2": "stop",
         "1,2": "dictate",
         "2,2": "send",
@@ -379,10 +401,10 @@
       "layout": {
         "0,0": "main",
         "1,0": "connectors",
-        "2,0": "newwindow",
+        "2,0": "settings",
         "3,0": "sidebar",
         "4,0": "find",
-        "0,1": "editlast",
+        "0,1": "usage",
         "1,1": "focusinput",
         "2,1": "copy",
         "3,1": "paste",

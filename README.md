@@ -1,6 +1,6 @@
 # Claude Controls
 
-Unofficial Elgato Stream Deck plugin for the **Claude desktop app on Windows**. Version 1.2.4.0.
+Unofficial Elgato Stream Deck plugin for the **Claude desktop app on Windows**. Version 1.2.5.0.
 
 Keys open Claude pages **inside the desktop app** (not the browser), start chats, Claude Code sessions and Cowork tasks, and send the app's own keyboard shortcuts. Every icon is animated.
 
@@ -8,7 +8,7 @@ Keys open Claude pages **inside the desktop app** (not the browser), start chats
 
 ## Install in three steps
 
-1. Download **ClaudeControls-Installer-1.2.4.0.zip** from [Releases](https://github.com/nikhilgs817/streamdeck_claude/releases/latest).
+1. Download **ClaudeControls-Installer-1.2.5.0.zip** from [Releases](https://github.com/nikhilgs817/streamdeck_claude/releases/latest).
 2. Right-click the ZIP, choose **Extract All**, and open the extracted folder.
 3. Double-click **Install-ClaudeControls.cmd**. Wait for the success message; Stream Deck restarts automatically.
 
@@ -16,11 +16,11 @@ No Git, Node.js or build commands are needed. Windows Daily Toolkit is included 
 
 ## The keys
 
-**Page 1 (Claude):** Back · New chat · Incognito · Search chats · Usage / Projects · Recents · Claude Code · Cowork · Settings / Stop · Dictate · Send · Copy reply · More
+**Page 1 (Claude):** Back · New chat · Incognito · Search chats · 5h session / Projects · Recents · Claude Code · Cowork · Weekly / Stop · Dictate · Send · Copy reply · More
 
-**Page 2 (More):** Main · Connectors · New window · Sidebar · Find / Edit last · Message box · Copy · Paste · Undo / Redo · Zoom in · Zoom out · Reset zoom · Full screen
+**Page 2 (More):** Main · Connectors · Settings · Sidebar · Find / Usage · Message box · Copy · Paste · Undo / Redo · Zoom in · Zoom out · Reset zoom · Full screen
 
-Also in the action list: Artifacts, Shortcuts, Focus app and Custom key.
+Also in the action list: Artifacts, Shortcuts, Focus app, New window, Edit last and Custom key.
 
 | Key | What it does | How |
 |---|---|---|
@@ -44,6 +44,14 @@ Also in the action list: Artifacts, Shortcuts, Focus app and Custom key.
 App links start Claude if it is closed. Shortcut keys first bring Claude to the front and **send nothing if another window stays in front**. You can change any shortcut in the key's settings. The app can change its shortcuts between versions; if a key stops working, enter the current shortcut in that key's settings. The plugin never reads or stores your account data.
 
 Open or focus Claude to show these keys automatically (needs Windows Daily Toolkit); **Back** returns to your main keys. **More** and **Main** switch between the two pages.
+
+## Usage keys (5h session, Weekly)
+
+![Usage keys](docs/images/usage.png)
+
+**5h session** and **Weekly** show how much of your Claude limits you have used: a big percentage inside a ring, the time until the window resets, and a colour that turns amber at 60 % and red at 85 %. They update every minute; press one to refresh now.
+
+Setup (once): in your browser, open claude.ai, press F12 › Application › Cookies › `https://claude.ai`, copy the **sessionKey** value and paste it into **Session key** in either usage key's settings. It is encrypted with Windows DPAPI for your account, shared by both keys, never logged, and only sent to claude.ai. If it expires the key shows **SIGN IN**; paste a new one. These keys read the same numbers as Settings › Usage; they are not an official API.
 
 ## Appearance
 
