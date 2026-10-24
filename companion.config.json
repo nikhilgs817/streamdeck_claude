@@ -354,7 +354,7 @@
   ],
   "uuid": "com.dailyops.claude.v1",
   "name": "Claude Controls",
-  "version": "1.2.5.0",
+  "version": "1.2.6.0",
   "profile": "profiles/Claude",
   "selector": {
     "names": [

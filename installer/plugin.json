@@ -4,12 +4,12 @@
   "PluginId": "com.dailyops.claude.v1",
   "PluginFolder": "claude",
   "Profile": "profiles/Claude",
-  "Version": "1.2.5.0",
+  "Version": "1.2.6.0",
   "Repository": "nikhilgs817/streamdeck_claude",
   "Toolkit": {
     "Version": "2.6.1.0",
     "Url": "https://github.com/nikhilgs817/windows_daily_toolkit/releases/download/v2.6.1/WindowsDailyToolkit-Installer-2.6.1.0.zip",
     "Sha256": "c2e1fd3e6e2671b16b7f4a70d54913596569164c5d89cf305e521d60310621c3"
   },
-  "PackageSha256": "479d92dbe78c694e66b8cb0c68c936ebf8e4b7ca81969163c01b0ad2143c73d5"
+  "PackageSha256": "a228eec91684cdfd7053d2a511734a011988f18bc34667c559c2f3ce9eb7eb0a"
 }

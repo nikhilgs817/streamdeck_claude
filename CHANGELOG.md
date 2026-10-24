@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.6
+
+- **Back fixed:** moving between pages (More, Main and the other page keys) no longer replaces your main keys as the place Back returns to. Back, and switching away from the app or minimizing it, now return to your Default profile.
+- Back and page presses are now written to the plugin log for troubleshooting.
+
 ## 1.2.5
 
 - New **5h session** and **Weekly** keys: show how much of your Claude usage limits is used (big %, ring, time to reset). Paste your claude.ai session key once in the key settings; it is encrypted for your Windows account and only sent to claude.ai. Updates every minute; press to refresh.
