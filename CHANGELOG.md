@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.2.7
+
+- **Usage keys fixed:** the 5-hour and weekly keys now read the organization that holds your Claude subscription (Max, Pro or Team first) instead of the first one returned, which could be an API or team org with no plan usage.
+- A window you have not used yet shows **0 %** instead of NO DATA, and the newer `limits` format from claude.ai is understood.
+- Clearer states: SIGN IN when the session key has expired, BLOCKED when claude.ai's browser check refuses the request.
+- The plugin log now records each usage-reading outcome (HTTP status, organization type, percentages; never the key).
+
 ## 1.2.6
 
 - **Back fixed:** moving between pages (More, Main and the other page keys) no longer replaces your main keys as the place Back returns to. Back, and switching away from the app or minimizing it, now return to your Default profile.
