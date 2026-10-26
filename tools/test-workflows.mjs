@@ -38,6 +38,7 @@ try{
    await wait(()=>/data-meter="(ok|setup|nodata|signin|blocked|error)"/.test(img()));
    if(c.meter.source==='codex'){check(c.id+' shows the Codex '+c.meter.window+' percentage',img().includes(c.meter.window==='5h'?'42%':'17%'));}
    else check(c.id+' asks for setup without a session key',img().includes('data-meter="setup"'));
+   if(c.meter.source==='claude'){const before=commands().length;press(c,{});await wait(()=>commands().length>before);const sent=commands().slice(before);check(c.id+' opens claude.ai in one press when no key is saved',sent.some(x=>x.command==='url'&&JSON.stringify(x).includes('https://claude.ai/')));}
    check(c.id+' never logs or sends a key in dry-run',!commands().some(x=>JSON.stringify(x).includes('sessionKey')));
    continue;
   }

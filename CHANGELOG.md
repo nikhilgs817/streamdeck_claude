@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.2.8
+
+- **One-press renewal:** when the usage keys show SETUP or SIGN IN, pressing one opens claude.ai so you can copy a fresh sessionKey and paste it in the key settings.
+- A Windows notification appears once when a working session key stops working.
+- The usage key settings show when the session key was saved.
+- The plugin log no longer repeats "no session key" every minute.
+
 ## 1.2.7
 
 - **Usage keys fixed:** the 5-hour and weekly keys now read the organization that holds your Claude subscription (Max, Pro or Team first) instead of the first one returned, which could be an API or team org with no plan usage.
