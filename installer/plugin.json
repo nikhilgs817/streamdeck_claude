@@ -1,15 +1,18 @@
 {
   "InstallerId": "ClaudeControls",
   "Name": "Claude Controls",
-  "PluginId": "com.dailyops.claude.v1",
+  "PluginId": "com.windowstoolkit.claude",
   "PluginFolder": "claude",
   "Profile": "profiles/Claude",
-  "Version": "1.2.8.0",
+  "Version": "2.0.0.0",
   "Repository": "nikhilgs817/streamdeck_claude",
   "Toolkit": {
-    "Version": "2.6.1.0",
-    "Url": "https://github.com/nikhilgs817/windows_daily_toolkit/releases/download/v2.6.1/WindowsDailyToolkit-Installer-2.6.1.0.zip",
-    "Sha256": "c2e1fd3e6e2671b16b7f4a70d54913596569164c5d89cf305e521d60310621c3"
+    "Version": "3.0.0.0",
+    "Url": "https://github.com/nikhilgs817/windows_toolkit/releases/download/v3.0.0/WindowsToolkit-Installer-3.0.0.0.zip",
+    "Sha256": "31506048f13823fdbff39b69dbfb66cb63952bb1a5ffb8c73b477a319b1df0b5"
   },
-  "PackageSha256": "44fb74377edadfd7d6e1f4052cc6e68ea1bb3c38054811b6a19c0ab764ac1993"
+  "PackageSha256": "6aaffbf918689a2d69214367f9e491ae729ca738c9aacdb3c79906a88d085b87",
+  "RetiredPluginIds": [
+    "com.dailyops.claude.v1"
+  ]
 }

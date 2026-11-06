@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.0
+
+- **Renamed for Windows Toolkit:** the plugin ID is now `com.windowstoolkit.claude` (was `com.dailyops.claude.v1`). The installer backs up and removes the old plugin; keys made with it need to be added again (the bundled profile covers the standard layout).
+- Works with **Windows Toolkit 3.0** (bundled) for automatic app switching.
+- Key animations now loop every 12 seconds (slower, calmer movement).
+
 ## 1.2.8
 
 - **One-press renewal:** when the usage keys show SETUP or SIGN IN, pressing one opens claude.ai so you can copy a fresh sessionKey and paste it in the key settings.
@@ -22,7 +28,7 @@
 ## 1.2.5
 
 - New **5h session** and **Weekly** keys: show how much of your Claude usage limits is used (big %, ring, time to reset). Paste your claude.ai session key once in the key settings; it is encrypted for your Windows account and only sent to claude.ai. Updates every minute; press to refresh.
-- **Back** now returns to your previous profile even when the Claude keys were opened directly in Stream Deck (not through Windows Daily Toolkit).
+- **Back** now returns to your previous profile even when the Claude keys were opened directly in Stream Deck (not through Windows Toolkit).
 
 ## 1.2.4
 
@@ -38,7 +44,7 @@
 
 ## 1.2.2
 
-- Bigger, bold key labels in Segoe UI (the same font family as Windows Daily Toolkit).
+- Bigger, bold key labels in Segoe UI (the same font family as Windows Toolkit).
 - Sidebar now presses Claude's own sidebar button (the Claude app has no reliable sidebar shortcut).
 - Incognito uses the `?incognito` app link. Artifacts moved off the default page (some app versions do not open it from a link); Settings takes its place, Connectors and New window move to page 2.
 
@@ -60,7 +66,7 @@
 ## 1.1.1
 
 - Added a double-click Windows installer with prerequisite checks, package verification, local backups, preserved profiles/settings and automatic rollback.
-- Included the pinned Windows Daily Toolkit dependency for automatic app switching. Compatible or newer installed versions are kept.
+- Included the pinned Windows Toolkit dependency for automatic app switching. Compatible or newer installed versions are kept.
 - Added a connected-runtime startup receipt and isolated installer tests.
 - Added installation, update, troubleshooting and recovery documentation.
 - Switched the development bundler to official Rollup WASM for restricted Windows environments.

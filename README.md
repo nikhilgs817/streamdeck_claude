@@ -1,6 +1,6 @@
 # Claude Controls
 
-Unofficial Elgato Stream Deck plugin for the **Claude desktop app on Windows**. Version 1.2.8.0.
+Unofficial Elgato Stream Deck plugin for the **Claude desktop app on Windows**. Version 2.0.0.0.
 
 Keys open Claude pages **inside the desktop app** (not the browser), start chats, Claude Code sessions and Cowork tasks, and send the app's own keyboard shortcuts. Every icon is animated.
 
@@ -8,11 +8,11 @@ Keys open Claude pages **inside the desktop app** (not the browser), start chats
 
 ## Install in three steps
 
-1. Download **ClaudeControls-Installer-1.2.8.0.zip** from [Releases](https://github.com/nikhilgs817/streamdeck_claude/releases/latest).
+1. Download **ClaudeControls-Installer-2.0.0.0.zip** from [Releases](https://github.com/nikhilgs817/streamdeck_claude/releases/latest).
 2. Right-click the ZIP, choose **Extract All**, and open the extracted folder.
 3. Double-click **Install-ClaudeControls.cmd**. Wait for the success message; Stream Deck restarts automatically.
 
-No Git, Node.js or build commands are needed. Windows Daily Toolkit is included for automatic app switching. The installer verifies files, backs up your setup, keeps your layouts and settings, and rolls back a failed update. [Full installation, update and recovery guide](docs/INSTALL.md).
+No Git, Node.js or build commands are needed. Windows Toolkit is included for automatic app switching. The installer verifies files, backs up your setup, keeps your layouts and settings, and rolls back a failed update. [Full installation, update and recovery guide](docs/INSTALL.md).
 
 ## The keys
 
@@ -43,7 +43,7 @@ Also in the action list: Artifacts, Shortcuts, Focus app, New window, Edit last 
 
 App links start Claude if it is closed. Shortcut keys first bring Claude to the front and **send nothing if another window stays in front**. You can change any shortcut in the key's settings. The app can change its shortcuts between versions; if a key stops working, enter the current shortcut in that key's settings. The plugin never reads or stores your account data.
 
-Open or focus Claude to show these keys automatically (needs Windows Daily Toolkit); **Back** returns to your main keys. **More** and **Main** switch between the two pages.
+Open or focus Claude to show these keys automatically (needs Windows Toolkit); **Back** returns to your main keys. **More** and **Main** switch between the two pages.
 
 ## Usage keys (5h session, Weekly)
 
@@ -83,7 +83,7 @@ npm run build:installer
 npm run test:installer   # Windows only
 ```
 
-The installer ZIP is `dist/ClaudeControls-Installer-<version>.zip`; the plugin package is `dist/com.dailyops.claude.v1.streamDeckPlugin`. Personal profiles, credentials, account data and build output are excluded from Git. The build uses the official Rollup WASM package so it works on Windows PCs that block native parsers.
+The installer ZIP is `dist/ClaudeControls-Installer-<version>.zip`; the plugin package is `dist/com.windowstoolkit.claude.streamDeckPlugin`. Personal profiles, credentials, account data and build output are excluded from Git. The build uses the official Rollup WASM package so it works on Windows PCs that block native parsers.
 
 ## Known limits
 
@@ -94,6 +94,6 @@ The installer ZIP is `dist/ClaudeControls-Installer-<version>.zip`; the plugin p
 
 - [Open Claude Desktop with a link](https://support.claude.com/en/articles/14729294-open-claude-desktop-with-a-link)
 - [Navigating the Claude desktop app](https://academy.claude.com/tutorials/navigating-the-claude-desktop-app)
-- [Windows Daily Toolkit](https://github.com/nikhilgs817/windows_daily_toolkit)
+- [Windows Toolkit](https://github.com/nikhilgs817/windows_toolkit)
 
 Not affiliated with or endorsed by Anthropic. Claude is a trademark of Anthropic, PBC. The icons are original artwork. MIT license.
