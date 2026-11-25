@@ -354,7 +354,7 @@
   ],
   "uuid": "com.windowstoolkit.claude",
   "name": "Claude Controls",
-  "version": "2.0.0.0",
+  "version": "2.1.0.0",
   "profile": "profiles/Claude",
   "selector": {
     "names": [
