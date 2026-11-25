@@ -1,6 +1,6 @@
 # Claude Controls
 
-Unofficial Elgato Stream Deck plugin for the **Claude desktop app on Windows**. Version 2.0.0.0.
+Unofficial Elgato Stream Deck plugin for the **Claude desktop app on Windows**. Version 2.1.0.0.
 
 Keys open Claude pages **inside the desktop app** (not the browser), start chats, Claude Code sessions and Cowork tasks, and send the app's own keyboard shortcuts. Every icon is animated.
 
@@ -8,7 +8,7 @@ Keys open Claude pages **inside the desktop app** (not the browser), start chats
 
 ## Install in three steps
 
-1. Download **ClaudeControls-Installer-2.0.0.0.zip** from [Releases](https://github.com/nikhilgs817/streamdeck_claude/releases/latest).
+1. Download **ClaudeControls-Installer-2.1.0.0.zip** from [Releases](https://github.com/nikhilgs817/streamdeck_claude/releases/latest).
 2. Right-click the ZIP, choose **Extract All**, and open the extracted folder.
 3. Double-click **Install-ClaudeControls.cmd**. Wait for the success message; Stream Deck restarts automatically.
 
@@ -57,15 +57,19 @@ Setup (once): in your browser, open claude.ai, press F12 › Application › Coo
 
 ![Styles](docs/images/styles.png)
 
+**Glass** is the default: frosted dark keys, a soft rim light, Title Case labels and an animated icon on every key (the gear turns, the usage needle sweeps, the sidebar slides, the code cursor blinks). Pick another look for one key, or press **Use this look on all keys** in any key's settings to restyle the whole deck.
+
 | Style | Look |
 |---|---|
-| **Claude Dark** (default) | Warm charcoal keys, ivory line icons, clay-orange accents, bold Segoe UI labels |
+| **Glass** (default) | Frosted dark glass, a quiet glow and Title Case labels |
+| **Claude Dark** | Warm charcoal keys, ivory line icons, clay-orange accents, bold Segoe UI labels |
 | **Claude Light** | Cream paper keys with the same icons |
-| **Colourful** | Coloured icons on dark glass |
 | **Vivid** | White icons on a bright gradient |
+| **Neon** | Coloured icons with a glowing edge on dark glass (formerly Colourful) |
+| **Mono** | Monochrome icons with a single colour dot |
 | **Pro** | Restrained slate keys with a thin accent strip |
 
-Colourful, Vivid and Pro use the new **Clay** colour by default and accept any of the 30 colours. Every icon has its own animation in a six-second loop at 12 fps (the gear turns, the usage needle sweeps, the sidebar slides, the code cursor blinks…). Labels stay still. Turn **Gentle loop** off for a still key. You can also pick another icon, change the label or use your own picture.
+Under **Look** you can also pick any of 40+ colour themes or two colours of your own, Full, Glow only, Icon only or Still animation at four speeds, glow strength, a press ripple, the label case and your own label (up to 18 letters) or picture. Keys go still while Windows **Animation effects** is off. The design is shared with [Windows Toolkit](https://github.com/nikhilgs817/windows_toolkit).
 
 ![Settings](docs/images/settings.png)
 

@@ -5,7 +5,7 @@
   "description": "Unofficial Claude controls for Elgato Stream Deck on Windows",
   "scripts": {
     "build": "node tools/generate.mjs && rollup -c",
-    "test": "node tools/test-workflows.mjs && node tools/test-usage.mjs",
+    "test": "node tools/test-workflows.mjs && node tools/test-trading-input.mjs && node tools/test-usage.mjs",
     "test:ui": "node tools/test-companion-ui.mjs",
     "validate": "streamdeck validate plugins/claude/com.windowstoolkit.claude.sdPlugin",
     "pack": "node tools/clean.mjs && streamdeck pack plugins/claude/com.windowstoolkit.claude.sdPlugin --output dist --force",
