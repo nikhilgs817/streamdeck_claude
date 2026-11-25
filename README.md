@@ -14,6 +14,20 @@ Keys open Claude pages **inside the desktop app** (not the browser), start chats
 
 No Git, Node.js or build commands are needed. Windows Toolkit is included for automatic app switching. The installer verifies files, backs up your setup, keeps your layouts and settings, and rolls back a failed update. [Full installation, update and recovery guide](docs/INSTALL.md).
 
+## New in 2.1: Design System 4
+
+| What | Details |
+|---|---|
+| **Glass is the new default** | Frosted dark keys, a soft rim light and Title Case labels. Claude Dark, Claude Light, Vivid, Neon (formerly Colourful) and Pro are still here, plus the new **Mono** look. |
+| **Custom colours** | Pick any two colours for a key instead of a theme. |
+| **Motion styles** | Full, Glow only, Icon only or Still, at Slow, Calm, Normal or Fast. |
+| **Glow and ripple** | Subtle, Normal or Bold glow, and a short ripple when you press a key (can be turned off per key). |
+| **Labels** | Up to 18 letters, fitted to the key, in Auto, Title Case or UPPER CASE. |
+| **Whole deck at once** | **Use this look on all keys** restyles every key of the plugin. |
+| **Respects Windows** | Keys stop moving when Windows **Animation effects** is off (you can opt out). |
+
+The design is shared with [Windows Toolkit](https://github.com/nikhilgs817/windows_toolkit) 3.1, so all your plugins can look the same.
+
 ## The keys
 
 **Page 1 (Claude):** Back · New chat · Incognito · Search chats · 5h session / Projects · Recents · Claude Code · Cowork · Weekly / Stop · Dictate · Send · Copy reply · More
@@ -69,9 +83,41 @@ Setup (once): in your browser, open claude.ai, press F12 › Application › Coo
 | **Mono** | Monochrome icons with a single colour dot |
 | **Pro** | Restrained slate keys with a thin accent strip |
 
-Under **Look** you can also pick any of 40+ colour themes or two colours of your own, Full, Glow only, Icon only or Still animation at four speeds, glow strength, a press ripple, the label case and your own label (up to 18 letters) or picture. Keys go still while Windows **Animation effects** is off. The design is shared with [Windows Toolkit](https://github.com/nikhilgs817/windows_toolkit).
+Select a key in Stream Deck and open **Look**:
 
-![Settings](docs/images/settings.png)
+| Setting | Choices |
+|---|---|
+| **Style** | Glass (default), Claude Dark, Claude Light, Vivid, Neon, Mono or Pro |
+| **Label** | Your own text (up to 18 letters, fitted to the key), Auto case / Title Case / UPPER CASE, or **Hide** |
+| **Picture** | **Use my own picture…** (PNG, JPEG, GIF, SVG, WebP or BMP). **Remove picture** goes back to the drawn icon |
+| **Animation** | Full, Glow only, Icon only or Still, at Slow, Calm (default), Normal or Fast |
+| **Glow** | Subtle, Normal or Bold, plus **Ripple when pressed** |
+| **Colour** | 42 colour themes, or two colours of your own with **Use these colours** (**Back to theme** undoes it). Claude Dark uses Claude's own colours |
+| **Icon** | Swap the drawing for any of 90+ icons |
+
+**Use this look on all keys** copies the style, animation, glow, label case and ripple to every key of this plugin, including keys on pages you can't see. Colours, icons and labels stay as they are. Change any key afterwards to give it its own look; **Reset look** (under the preview) returns a key to the defaults. Keys stay still while Windows **Settings › Accessibility › Visual effects › Animation effects** is off, unless you untick **Keep keys still when Windows animations are off**.
+
+![Key settings panel (earlier version)](docs/images/settings.png)
+
+*This screenshot is from before version 2.1. The Look section now also has Animation, Glow, Custom colours and Use this look on all keys, as listed above.*
+
+## Troubleshooting
+
+- **Nothing happens when I press a key.** Shortcut keys bring Claude to the front first and send nothing if another window stays in front. Click into Claude once and press again.
+- **A key does the wrong thing, or stopped working after an app update.** Claude may have changed or you may have customised that shortcut. Select the key and type the current shortcut into **Shortcut**; leave it empty to use the built-in control again.
+- **The keys don't appear when I open Claude.** Automatic switching needs Windows Toolkit 2.6 or later (the installer adds it), the bundled **Claude** profile, and **Follow focus** ticked in the **Back** key's settings. You can always pick the profile yourself from Stream Deck's profile list.
+- **After Back, the app keys don't come back right away.** That's on purpose: they return the next time you leave the app and come back to it.
+- **The keys don't move.** Windows **Animation effects** is off, or the key's **Animation** is set to Still. Turn either back on, or untick **Keep keys still when Windows animations are off**.
+- **One key looks different after "Use this look on all keys".** Colours, icons, labels and pictures are kept on purpose. Select the key and choose **Reset look** to start it fresh.
+- **5h session / Weekly show SIGN IN, SETUP or BLOCKED.** See [Usage keys](#usage-keys-5h-session-weekly): paste a fresh **sessionKey**, or press the key later to retry.
+- **Managed or locked-down PC.** If PowerShell runs in Constrained Language Mode or hidden PowerShell is blocked, the shortcut keys can't send keys. App-link keys still work while Windows can open their links.
+- **Logs** are in `%APPDATA%\Elgato\StreamDeck\Plugins\com.windowstoolkit.claude.sdPlugin\logs`. Installer problems are covered in the [installation guide](docs/INSTALL.md#if-installation-does-not-finish).
+
+## Data and connections
+
+Everything runs on your PC. Keys send keyboard shortcuts to the Claude window or open `claude://` links, which Windows hands to the Claude app. The only network request the plugin makes is from the **5h session** and **Weekly** keys, which send your saved session key to claude.ai to read your usage. The session key is encrypted with Windows DPAPI for your Windows account and never logged. The plugin never reads your chats, files or account details.
+
+Automatic app switching uses a local named pipe shared with Windows Toolkit; it carries only which plugin should show its keys, never app content or credentials. There is no telemetry. The installer downloads the matching public release from GitHub only when its package isn't already in the folder; backups and logs stay on your PC.
 
 ## Build and verify
 
